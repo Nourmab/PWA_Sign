@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Great Vibes', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url('https://images.pexels.com/photos/270815/pexels-photo-270815.jpeg?cs=srgb&dl=pexels-pixabay-270815.jpg&fm=jpg');
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+
+
+        }
+
+        /* Add a black background color to the top navigation */
+        .nav {
+            background-color: #000000;
+            position: fixed;   /* Fixes the navbar to the top */
+            top: 0;            /* Aligns it at the top of the page */
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Keeps the navbar on top of other content */
+        }
+
+        /* Style the links inside the navigation bar */
+        .nav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change the color of links on hover */
+        .nav a:hover {
+            background-color: #444;
+        }
+
+        /* Add a color to the active/current link */
+        .nav a.active {
+            background-color: #FCA92B;
+            color: white;
+        }
+
+        .auth-layout {
+            background: #000000;
+            padding: 2rem 1.5rem; /* Réduction de l'espacement interne */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajustement de l'ombre pour plus de subtilité */
+            width: 100%;
+            max-width: 500px; /* Réduction de la taille maximale */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+
+        .auth-layout:hover {
+            /*transform: translateY(-5px);*/
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .auth-layout h1 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .auth-layout p {
+            margin-bottom: 1.5rem;
+            color: #777;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 40px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #FCA92B;
+            box-shadow: 0 0 5px rgba(99, 102, 241, 0.3);
+        }
+
+        .form-group p {
+            position: absolute;
+            top: 48%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 1.3rem;
+            color: #aaa;
+        }
+
+        .form-group label {
+            color: #FCA92B;
+        }
+
+        .form-group .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: -130px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #aaa;
+            font-size: 1.4rem;
+        }
+
+        .form-group .toggle-password:hover {
+            color: #FCA92B;
+        }
+
+        .error-message {
+            margin-top: 4px;
+            font-size: 0.85rem;
+            color: red;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #E56A03 ;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #E56A03 ;
+            transform: translateY(-3px);
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .auth-footer a {
+            color: #FCA92B;
+            text-decoration: none;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+        .auth-header h1 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+            text-align: start;
+        }
+    </style>
+</head>
+
+<body>
+<div class="auth-layout">
+    <div class="auth-header">
+        <!--<img src="logo.png" alt="Logo" class="auth-logo">-->
+        <h1>Create Account</h1>
+        <p>Start your journey with us</p>
+    </div>
+    <form class="auth-form">
+        <div class="form-group">
+            <label for="email" class="sr-only">Email address</label>
+            <div class="form-group">
+                <p>✉️</p>
+                <input id="email" name="email" type="email" placeholder="Email address" required>
+            </div>
+            <small class="error-message" id="email-error"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <div class="form-group">
+                <p>🔒</p>
+                <input id="password" name="password" type="password" placeholder="Password" required>
+
+            </div>
+            <small class="error-message" id="password-error"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="confirm-password" class="sr-only">Confirm Password</label>
+            <div class="form-group">
+                <p>🔒</p>
+                <input id="confirm-password" name="confirm-password" type="password" placeholder="Confirm Password"
+                       required>
+            </div>
+            <small class="error-message" id="confirm-password-error"></small>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </div>
+    </form>
+    <div class="auth-footer">
+        <p>Already have an account? <a href="/" class="login-link">Sign In</a></p>
+    </div>
+</div>
+</body>
+
+</html>
